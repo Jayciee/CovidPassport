@@ -1,0 +1,49 @@
+﻿@page
+@model CovidPassport.Pages.Approval.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>NHS Passport Approval</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @("NHS Number")
+            </th>
+            <th>
+                @("Forename")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Surname)
+            </th>
+            <th>
+                @("Number of Vaccines")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Person) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfVaccines)
+            </td>
+            <td>
+                <a onClick="" asp-page="./Approve" asp-route-id="@item.PersonId">Approve</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

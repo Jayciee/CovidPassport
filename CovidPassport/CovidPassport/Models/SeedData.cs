@@ -154,32 +154,6 @@ namespace CovidPassport.Models
                     #endregion
                     context.SaveChanges();
                 }
-                if (context.Passports.Any())
-                {
-                    //Do Nothing
-                }
-                else
-                {
-                    #region Passport SeedData
-                    context.Passports.AddRange(
-                       new Passport
-                       {
-                           PassportId = 977472186,
-                           PersonId = 977472186,
-                           HealthCentreId = 1
-                       },
-                       new Passport
-                       {
-                           PassportId = 175126944,
-                           PersonId = 175126944,
-                           HealthCentreId = 2
-                       }
-                    );
-                    #endregion
-                    context.SaveChanges();
-                }
-                
-
             }
         }
     }
