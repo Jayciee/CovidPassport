@@ -1,0 +1,46 @@
+﻿@page
+@model CovidPassport.Pages.Passports.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Passport</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Passport.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Passport.Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Passport.ExpirationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Passport.ExpirationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Passport.HealthCentre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Passport.HealthCentre.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Passport.Person)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Passport.Person.FirstName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Passport.PassportId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

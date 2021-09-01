@@ -1,0 +1,54 @@
+﻿@page
+@model CovidPassport.Pages.Passports.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Passport[0].Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passport[0].ExpirationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passport[0].HealthCentre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passport[0].Person)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Passport) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HealthCentre.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.FirstName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PassportId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PassportId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PassportId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
