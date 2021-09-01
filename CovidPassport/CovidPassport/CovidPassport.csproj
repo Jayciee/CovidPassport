@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Pages\Addresses\" />
+    <Folder Include="Pages\HealthCentres\" />
+    <Folder Include="Pages\Persons\" />
+    <Folder Include="Pages\Passports\" />
+  </ItemGroup>
+
 </Project>
