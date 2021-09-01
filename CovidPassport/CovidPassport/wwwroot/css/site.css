@@ -11,6 +11,18 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
+h1{
+    font-family: 'Bodoni MT';
+    color: #4f65e6;
+}
+
+.navbar-brand:hover{
+    background: #fff368;
+}
+.nav-link:hover {
+    background: #fff368;
+}
+
 
 .btn-primary {
   color: #fff;
