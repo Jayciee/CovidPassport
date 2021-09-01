@@ -26,6 +26,8 @@ namespace CovidPassport
         {
             services.AddRazorPages();
 
+            services.AddDbContext<PassportTrackerContext>(options =>
+        options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PassportTracker;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
