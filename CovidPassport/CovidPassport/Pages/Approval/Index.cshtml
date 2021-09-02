@@ -41,7 +41,8 @@
                 @Html.DisplayFor(modelItem => item.NoOfVaccines)
             </td>
             <td>
-                <a onClick="" asp-page="./Approve" asp-route-id="@item.PersonId">Approve</a>
+                <a onClick="" asp-page="./Approve" asp-route-id="@item.PersonId">Approve</a> |
+                <a onClick="" asp-page="./Details" asp-route-id="@item.PersonId">NHS Details</a>
             </td>
         </tr>
 }
