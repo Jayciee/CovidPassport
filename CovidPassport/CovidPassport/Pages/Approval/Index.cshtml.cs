@@ -18,29 +18,30 @@ namespace CovidPassport.Pages.Approval
             _context = context;
         }
 
-        public IList<Person> Person { get;set; }
+        public IList<Person> PersonList { get;set; }
 
         public async Task OnGetAsync()
         {
-            Person = await _context.People.Where(p => Convert.ToInt32(p.NoOfVaccines) >= 2).ToListAsync();
+
+            var OriginalList = await _context.People.Where(p => Convert.ToInt32(p.NoOfVaccines) >= 2).ToListAsync();
+
+            var PassportList = _context.Passports.ToList();
+
+            foreach (var person in OriginalList.ToList())
+            {
+                if (PassportList.Any(item => item.PersonId == person.PersonId))
+                {
+                    OriginalList.Remove(person);
+                }
+
+            }
+
+            PersonList = OriginalList.Where(p => Convert.ToInt32(p.NoOfVaccines) >= 2).ToList();
         }
 
         public Person GetPerson(int id)
         {
             return _context.People.Where(p => p.PersonId == id).FirstOrDefault();
-        }
-
-        public void CreatePassport(int id)
-        {
-            var details = GetPerson(id);
-            Passport passportToBeAdded = new Passport() {
-                PassportId = details.PersonId,
-                PersonId = details.PersonId,
-                ExpirationDate = DateTime.Now.AddYears(10),
-                Picture = details.PersonId.ToString() + ".png",
-                HealthCentreId = '1'
-            };
-            _context.Passports.Add(passportToBeAdded);
         }
     }
 }

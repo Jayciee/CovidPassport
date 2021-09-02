@@ -17,7 +17,7 @@
                 @("Forename")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Person[0].Surname)
+                @Html.DisplayNameFor(model => model.PersonList[0].Surname)
             </th>
             <th>
                 @("Number of Vaccines")
@@ -26,7 +26,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Person) {
+@foreach (var item in Model.PersonList) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.PersonId)
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.NoOfVaccines)
             </td>
             <td>
-                <a onClick="" asp-page="./Approve" asp-route-id="@item.PersonId">Approve</a> |
+                <a onClick="" asp-page="./Edit" asp-route-id="@item.PersonId">Approve</a> |
                 <a onClick="" asp-page="./Details" asp-route-id="@item.PersonId">NHS Details</a>
             </td>
         </tr>
