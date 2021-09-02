@@ -2,11 +2,14 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    /* white-space: normal;*/
+    text-align: center;
+    word-break: break-all;
 }
-
+a.nav-link {
+    font-size: 20px;
+    font-weight: bold;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -17,10 +20,30 @@ h1{
 }
 
 .navbar-brand:hover{
-    background: #fff368;
+    background: #fff7a0;
 }
 .nav-link:hover {
-    background: #fff368;
+    background: #fff7a0;
+}
+
+#NHS_logo {
+    background-image: url('/Images/NHS.png');
+    background-size: 100% auto;
+    margin-bottom: 30px;
+}
+
+
+#navbar_Home {
+    background-color: rgb(255 235 59 / 0.79);
+    margin: -17px -500px 0px -500px;
+}
+#showcase {
+    background-image: url('/Images/back.jpg');
+    background-position: 0px -300px;
+    background-size: 100% auto;
+    margin: 0px -225px 5000px -225px;
+    min-height: 300px;
+    margin-bottom: 30px;
 }
 
 

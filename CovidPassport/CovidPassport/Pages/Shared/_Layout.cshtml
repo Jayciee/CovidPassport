@@ -12,19 +12,25 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+
+                <section id="NHS_logo">
+                    <div class="picture"></div>
+                    @*<img src="/Images/NHS.png">*@
+                </section>
+
+                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 @*EXAMPLE of what it looked like before
 
-                    <a class="navbar-brand" asp-area="" asp-page="Passports/Index">Passports</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>*@
+                <a class="navbar-brand" asp-area="" asp-page="Passports/Index">Passports</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>*@
                 <div class="dropdown">
                     <a class="nav-link text-dark">Health Centres</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -45,11 +51,11 @@
                     </div>
                 </div>
 
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
     </header>
