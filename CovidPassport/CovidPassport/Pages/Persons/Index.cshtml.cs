@@ -40,11 +40,15 @@ namespace CovidPassport.Pages.Persons
                     s.Surname.Contains(SearchString) ||
                     s.NoOfVaccines.Contains(SearchString) ||
                     Convert.ToString(s.PersonId).Contains(SearchString));
-                Person = await people.ToListAsync();
+            }
+
+            if (!string.IsNullOrEmpty(City))
+            {
+                people = people.Where(x => x.Address.City == City);
             }
 
             Cities = new SelectList(await cityQuery.Distinct().ToListAsync());
-            Person = await _context.People.Include(p => p.Address).ToListAsync();
+            Person = await people.Include(p => p.Address).ToListAsync();
         }
     }
 }
