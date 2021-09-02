@@ -26,12 +26,13 @@ h1{
     background: #fff7a0;
 }
 
-#NHS_logo {
-    background-image: url('/Images/NHS.png');
-    background-size: 100% auto;
-    margin-bottom: 30px;
-}
 
+.container_HomePage {
+    background-color: #f0f4f5;
+    float: left;
+    border: none;
+    margin: -30px -5px 0px -200px;
+}
 
 #navbar_Home {
     background-color: rgb(255 235 59 / 0.79);
