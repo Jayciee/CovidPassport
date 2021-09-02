@@ -13,28 +13,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Passport.Picture)
+            @("Passport")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Passport.Picture)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Passport.ExpirationDate)
+            @("Expiration Date")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Passport.ExpirationDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Passport.HealthCentre)
+            @("Health Centre")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Passport.HealthCentre.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Passport.Person)
+            @("Surname")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Passport.Person.FirstName)
+            @Html.DisplayFor(model => model.Passport.Person.Surname)
         </dd>
     </dl>
     

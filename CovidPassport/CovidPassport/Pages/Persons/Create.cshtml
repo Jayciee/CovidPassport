@@ -7,38 +7,38 @@
 
 <h1>Create</h1>
 
-<h4>Person</h4>
+<h4>NHS Record</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Person.PersonId" class="control-label"></label>
+                <label asp-for="Person.PersonId" class="control-label">NHS Number</label>
                 <input asp-for="Person.PersonId" class="form-control" />
                 <span asp-validation-for="Person.PersonId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.AddressId" class="control-label"></label>
+                <label asp-for="Person.AddressId" class="control-label">Address</label>
                 <select asp-for="Person.AddressId" class ="form-control" asp-items="ViewBag.AddressId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Person.Surname" class="control-label"></label>
+                <label asp-for="Person.Surname" class="control-label">Surname</label>
                 <input asp-for="Person.Surname" class="form-control" />
                 <span asp-validation-for="Person.Surname" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.FirstName" class="control-label"></label>
+                <label asp-for="Person.FirstName" class="control-label">First name</label>
                 <input asp-for="Person.FirstName" class="form-control" />
                 <span asp-validation-for="Person.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.NoOfVaccines" class="control-label"></label>
+                <label asp-for="Person.NoOfVaccines" class="control-label">No. of Vaccines</label>
                 <input asp-for="Person.NoOfVaccines" class="form-control" />
                 <span asp-validation-for="Person.NoOfVaccines" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.Dob" class="control-label"></label>
+                <label asp-for="Person.Dob" class="control-label">Date of Birth</label>
                 <input asp-for="Person.Dob" class="form-control" />
                 <span asp-validation-for="Person.Dob" class="text-danger"></span>
             </div>
