@@ -4,14 +4,16 @@ using CovidPassport;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CovidPassport.Migrations
 {
     [DbContext(typeof(PassportTrackerContext))]
-    partial class PassportTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20210902092233_WorkingModel")]
+    partial class WorkingModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
