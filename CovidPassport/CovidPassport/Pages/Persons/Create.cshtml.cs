@@ -20,6 +20,7 @@ namespace CovidPassport.Pages.Persons
 
         public IActionResult OnGet()
         {
+            
         ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "City");
             return Page();
         }

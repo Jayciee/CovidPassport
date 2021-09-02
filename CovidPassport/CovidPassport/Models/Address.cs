@@ -23,11 +23,11 @@ namespace CovidPassport
         public string StreetName { get; set; }
         [Required(ErrorMessage = "Invalid City name")]
         [StringLength(85)]
-        [RegularExpression(@"^[A-Z][a-z\s]*$")]
+        [RegularExpression(@"^[A-Za-z\s]*$")]
         public string City { get; set; }
         [Required(ErrorMessage = "Missing Postcode.")]
         [StringLength(8)]
-        [RegularExpression(@"[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]\s[A-Z0-9][A-Z0-9][A-Z0-9]",ErrorMessage = "Invalid postcode. Correct format should be in [XXXX XXX]")]
+        [RegularExpression(@"[A-Z0-9]{3,4}\s[A-Z0-9]{3}",ErrorMessage = "Invalid postcode. Correct format should be in [XXXX XXX]")]
         public string Postcode { get; set; }
 
         public virtual ICollection<HealthCentre> HealthCentres { get; set; }
