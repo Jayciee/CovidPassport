@@ -15,7 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Passport.PassportId" />
             <div class="form-group">
-                <label asp-for="Passport.HealthCentreId" class="control-label"></label>
+                <label asp-for="Passport.HealthCentreId" class="control-label">Health Centre</label>
                 <select asp-for="Passport.HealthCentreId" class="form-control" asp-items="ViewBag.HealthCentreId"></select>
                 <span asp-validation-for="Passport.HealthCentreId" class="text-danger"></span>
             </div>
