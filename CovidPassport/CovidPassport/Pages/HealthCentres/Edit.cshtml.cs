@@ -36,7 +36,7 @@ namespace CovidPassport.Pages.HealthCentres
             {
                 return NotFound();
             }
-           ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "City");
+           ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "CompleteAddress");
             return Page();
         }
 
