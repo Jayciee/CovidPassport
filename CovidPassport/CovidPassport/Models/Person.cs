@@ -12,15 +12,14 @@ namespace CovidPassport
         {
             Passports = new HashSet<Passport>();
         }
-        [Required(ErrorMessage ="Missing NHS Number")]
-        [RegularExpression(@"[0-9]*", ErrorMessage = "NHS must only contain numbers.")]
-        [MaxLength(9)] //Need to change to accept actual NHS Numbers
+        [Required(ErrorMessage = "Missing NHS Number")]
+        [RegularExpression(@"[0-9]{9}", ErrorMessage = "Invalid NHS Number")]
         public int PersonId { get; set; }
         [Required(ErrorMessage = "Missing Address Id")]
         public int AddressId { get; set; }
         [Required(ErrorMessage = "MissingSurname")]
         [StringLength(50)]
-        [RegularExpression(@"^[A-Z][a-z]*$",ErrorMessage ="Surname must not contain numbers, special characters or spaces.")]
+        [RegularExpression(@"^[A-Z][a-z]*$", ErrorMessage = "Surname must not contain numbers, special characters or spaces.")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "Missing Firstname")]
         [StringLength(50)]
