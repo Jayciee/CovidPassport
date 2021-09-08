@@ -23,10 +23,29 @@ namespace CovidPassportBDDTest.BDD
             _website.AddressPage.ItemByPosition_Details(0);
         }
         
-        [Then(@"I should be brought to this URL ""(.*)""")]
-        public void ThenIShouldBeBroughtToThisURL(string address)
+        [Then(@"I should see addresses on the screen")]
+        public void ThenIShouldSeeAddressesOnTheScreen()
         {
-            Assert.That(_website.Driver.Url, Is.EqualTo(address));
+            Assert.That(_website.AddressPage.GetAddressCount(), Is.Not.Null);
+        }
+
+        [When(@"I click edit on the first item")]
+        public void WhenIClickEditOnTheFirstItem()
+        {
+            _website.AddressPage.ItemByPosition_Edit(0);
+        }
+
+        [Then(@"I should be redirected to address URL ""(.*)""")]
+        public void ThenIShouldBeRedirectedToAddressURL(string address)
+        {
+            Assert.That(_website.AddressPage.ReturnUrl(), Is.EqualTo(address));
+        }
+
+        [AfterScenario]
+        public void DisposeWebDriver()
+        {
+            _website.Driver.Quit();
+            _website.Driver.Dispose();
         }
     }
 }
