@@ -26,6 +26,7 @@ namespace CovidPassportBDDTest.libs.pages
         // Currently Methods do not have a way to go to other pages
         #region Methods
         public void GoToAddressPage() => Driver.Navigate().GoToUrl(_url);
+        public string ReturnUrl() => Driver.Url.ToString();
         public void CreateNewAddress() => _createNewAddress.Click();
         public int GetAddressCount() => _tableItems.Count();
         public void ItemByPosition_Edit(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[1]")).Click();

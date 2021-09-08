@@ -17,10 +17,16 @@ namespace CovidPassportBDDTest.BDD
             _website.LocationPage.VisitLocationPage();
         }
 
-        [When(@"I click the create button")]
-        public void WhenIClickTheCreateButton()
+        [When(@"I click the create location button")]
+        public void WhenIClickTheCreateLocationButton()
         {
             _website.LocationPage.ClickAddCentre();
+        }
+
+        [Then(@"I should be redirected to location URL ""(.*)""")]
+        public void ThenIShouldBeRedirectedToLocationURL(string address)
+        {
+            Assert.That(_website.LocationPage.ReturnUrl(), Does.Contain(address));
         }
 
         [AfterScenario]
