@@ -13,11 +13,13 @@ namespace CovidPassportBDDTest.libs
     {
         public IWebDriver Driver { get; set; }
         public CovidPassport_AddressPage AddressPage { get; set; }
+        public CovidPassport_LocationPage LocationPage { get; set; }
 
         public CovidPassport_Website(int pageLoadInSecs = 10, int implicitWaitInSecs = 10)
         {
             Driver = new SeleniumDriverConfig<T>(pageLoadInSecs, implicitWaitInSecs).Driver;
             AddressPage = new CovidPassport_AddressPage(Driver);
+            LocationPage = new CovidPassport_LocationPage(Driver);
         }
 
         public void DeleteCookies() => Driver.Manage().Cookies.DeleteAllCookies();

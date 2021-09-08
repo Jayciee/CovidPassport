@@ -27,6 +27,7 @@ namespace CovidPassportBDDTest.libs.pages
         #region Methods
         public void GoToAddressPage() => Driver.Navigate().GoToUrl(_url);
         public void CreateNewAddress() => _createNewAddress.Click();
+        public int GetAddressCount() => _tableItems.Count();
         public void ItemByPosition_Edit(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[1]")).Click();
         public void ItemByPosition_Details(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[2]")).Click();
         public void ItemByPosition_Delete(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[3]")).Click();
