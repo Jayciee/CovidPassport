@@ -11,12 +11,33 @@ Scenario: First time entering Addresses
 @redirect
 Scenario: Click Edit on first item
 	Given I am on the Addresses page
-	When I click edit on the first item
+	When I click edit on the first address
 	Then I should be redirected to address URL "https://localhost:44312/Addresses/Edit?id=1"
 
 
 @redirect
 Scenario: Click Details on first item
 	Given I am on the Addresses page	
-	When I click details on the first item 
+	When I click details on the first address 
 	Then I should be redirected to address URL "https://localhost:44312/Addresses/Details?id=1"
+
+@create
+Scenario: Creating a new address
+	Given I am on the Addresses page
+	When I click the create new address hyperlink
+	And I am redirected to address URL "https://localhost:44312/Addresses/Create"
+	And I enter the details <id>, <house number>, <street name>, <city name>, <postcode id>
+	And I click the create button on the create address page
+	Then I should be redirected back to the address page
+	And My created user should appear with id <id>
+
+Examples: 
+| id | house number | street name | city name | postcode id |
+| 10 | 12           | Teststreet  | Test City | TE27 1DE    |
+
+@delete
+Scenario: Deleting new address
+	Given I am on the Addresses page
+	When I click delete address on my created item
+	And I click the delete button again on the address deletion confirmation page
+	Then The address should be removed
