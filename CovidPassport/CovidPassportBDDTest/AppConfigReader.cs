@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace CovidPassportSpecflowTesting
+namespace CovidPassportBDDTest
 {
     public static class AppConfigReader
     {
