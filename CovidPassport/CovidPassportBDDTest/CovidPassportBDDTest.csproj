@@ -99,16 +99,19 @@
   <ItemGroup>
     <Compile Include="AppConfigReader.cs" />
     <Compile Include="BDD\AddressFeatureSteps.cs" />
+    <Compile Include="BDD\PassportApprovalFeatureSteps.cs" />
     <Compile Include="BDD\LocationFeatureSteps.cs" />
     <Compile Include="libs\CovidPassport_Website.cs" />
     <Compile Include="libs\driver_config\SeleniumDriverConfig.cs" />
     <Compile Include="libs\pages\CovidPassport_AddressPage.cs" />
     <Compile Include="libs\pages\CovidPassport_LocationPage.cs" />
+    <Compile Include="libs\pages\CovidPassport_PassportApprovalPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="BDD\AddressFeature.feature" />
+    <None Include="BDD\PassportApprovalFeature.feature" />
     <None Include="BDD\LocationFeature.feature" />
     <None Include="packages.config" />
   </ItemGroup>
