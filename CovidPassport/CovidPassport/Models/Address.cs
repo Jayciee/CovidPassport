@@ -19,7 +19,7 @@ namespace CovidPassport
         public string HouseNumber { get; set; }
         [Required(ErrorMessage = "Invalid  Street name")]
         [StringLength(85)]
-        [RegularExpression(@"^[A-Z][a-z\s]*$")]
+        [RegularExpression(@"^[A-Za-z\s]*$")]
         public string StreetName { get; set; }
         [Required(ErrorMessage = "Invalid City name")]
         [StringLength(85)]
