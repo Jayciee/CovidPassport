@@ -18,8 +18,10 @@ namespace CovidPassportBDDTest.libs.pages
         private IWebDriver Driver { get; }
 
         private string _url = AppConfigReader.AddressUrl;
-        private IReadOnlyList<IWebElement> _tableItems => Driver.FindElements(By.XPath("/html/body/div/main/table/tbody"));
+        private IReadOnlyList<IWebElement> _tableItems => Driver.FindElements(By.XPath("/html/body/div/main/table/tbody/tr"));        
         private IWebElement _createNewAddress => Driver.FindElement(By.XPath("/html/body/div/main/p/a"));
+        private IWebElement _addressForm => Driver.FindElement(By.XPath("/html/body/div/main/div[1]"));
+        
         #endregion
 
 
@@ -32,6 +34,13 @@ namespace CovidPassportBDDTest.libs.pages
         public void ItemByPosition_Edit(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[1]")).Click();
         public void ItemByPosition_Details(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[2]")).Click();
         public void ItemByPosition_Delete(int pos) => _tableItems[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos + 1}]/td[5]/a[3]")).Click();
+        public void EnterAddressId(string id) => _addressForm.FindElement(By.XPath("//*[@id='Address_AddressId']")).SendKeys(id);
+        public void EnterHouseNumber(string house_number) => _addressForm.FindElement(By.XPath("//*[@id='Address_HouseNumber']")).SendKeys(house_number);
+        public void EnterStreetName(string street_name) => _addressForm.FindElement(By.XPath("//*[@id='Address_StreetName']")).SendKeys(street_name);
+        public void EnterCityName(string city_name) => _addressForm.FindElement(By.XPath("//*[@id='Address_City']")).SendKeys(city_name);
+        public void EnterPostcode(string postcode) => _addressForm.FindElement(By.XPath("//*[@id='Address_Postcode']")).SendKeys(postcode);
+        public void ClickCreate() => _addressForm.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[6]/input")).Click();
+        public void ClickDelete() => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]")).Click();
         #endregion
     }
 }
