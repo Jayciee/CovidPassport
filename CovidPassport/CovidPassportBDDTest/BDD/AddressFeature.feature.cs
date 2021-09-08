@@ -149,7 +149,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I click edit on the first item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
- testRunner.Then("I should be brought to this URL \"https://localhost:44312/Addresses/Edit?id=1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be redirected to address URL \"https://localhost:44312/Addresses/Edit?id=" +
+                        "1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -191,7 +192,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I click details on the first item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 22
- testRunner.Then("I should be brought to this URL \"https://localhost:44312/Addresses/Details?id=1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be redirected to address URL \"https://localhost:44312/Addresses/Details?" +
+                        "id=1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

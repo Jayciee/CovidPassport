@@ -28,6 +28,7 @@ namespace CovidPassportBDDTest.libs.pages
         #endregion
         #region Methods
         public void VisitLocationPage() => Driver.Navigate().GoToUrl(_url);
+        public string ReturnUrl() => Driver.Url.ToString();
         public void ClickAddCentre() => _addCentre.Click();
         public void ClickEdit() => _edit.Click();
         public void ClickDetails() => _details.Click();

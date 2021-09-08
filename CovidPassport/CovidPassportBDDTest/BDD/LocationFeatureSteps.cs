@@ -22,6 +22,12 @@ namespace CovidPassportBDDTest.BDD
         {
             _website.LocationPage.ClickAddCentre();
         }
+ 
+        [Then(@"I should be redirected to location URL ""(.*)""")]
+        public void ThenIShouldBeRedirectedToLocationURL(string address)
+        {
+            Assert.That(_website.LocationPage.ReturnUrl(), Does.Contain(address));
+        }
 
         [AfterScenario]
         public void DisposeWebDriver()

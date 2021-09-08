@@ -7,4 +7,4 @@
 Scenario: Click Create to add new location
 Given I am on the locations page
 When I click the create button
-Then I should be brought to this URL "https://localhost:44312/HealthCentres/Create"
+Then I should be redirected to location URL "https://localhost:44312/HealthCentres/Create"
