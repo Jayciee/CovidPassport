@@ -102,6 +102,7 @@
     <Compile Include="libs\CovidPassport_Website.cs" />
     <Compile Include="libs\driver_config\SeleniumDriverConfig.cs" />
     <Compile Include="libs\pages\CovidPassport_AddressPage.cs" />
+    <Compile Include="libs\pages\CovidPassport_LocationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

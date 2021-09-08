@@ -28,5 +28,12 @@ namespace CovidPassportBDDTest.BDD
         {
             Assert.That(_website.Driver.Url, Is.EqualTo(address));
         }
+
+        [AfterScenario]
+        public void DisposeWebDriver()
+        {
+            _website.Driver.Quit();
+            _website.Driver.Dispose();
+        }
     }
 }
