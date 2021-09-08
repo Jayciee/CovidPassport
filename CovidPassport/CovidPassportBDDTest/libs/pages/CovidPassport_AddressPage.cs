@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CovidPassportSpecflowTesting.libs.pages
+namespace CovidPassportBDDTest.libs.pages
 {
     class CovidPassport_AddressPage
     {

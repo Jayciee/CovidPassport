@@ -2,29 +2,31 @@
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
-using CovidPassportSpecflowTesting.libs;
+using CovidPassportBDDTest.libs;
 
-namespace CovidPassportSpecflowTesting.BDD
+namespace CovidPassportBDDTest.BDD
 {
     [Binding]
     public class AddressFeatureSteps
-    {         
+    {
+        private CovidPassport_Website<ChromeDriver> _website = new CovidPassport_Website<ChromeDriver>();
+
         [Given(@"I am on the Addresses page")]
         public void GivenIAmOnTheAddressesPage()
         {
-            ScenarioContext.Current.Pending();
+            _website.AddressPage.GoToAddressPage();
         }
         
         [When(@"I click details on the first item")]
         public void WhenIClickDetailsOnTheFirstItem()
         {
-            ScenarioContext.Current.Pending();
+            _website.AddressPage.ItemByPosition_Details(0);
         }
         
         [Then(@"I should be brought to this URL ""(.*)""")]
         public void ThenIShouldBeBroughtToThisURL(string address)
         {
-            ScenarioContext.Current.Pending();
+            Assert.That(_website.Driver.Url, Is.EqualTo(address));
         }
     }
 }

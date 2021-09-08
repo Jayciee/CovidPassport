@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CovidPassportSpecflowTesting
+namespace CovidPassportSpecflowTesting.libs
 {
     class CovidPassport_Website<T> where T : IWebDriver, new()
     {
