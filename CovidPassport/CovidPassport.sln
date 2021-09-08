@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1585
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidPassport", "CovidPassport\CovidPassport.csproj", "{1F645A8A-127F-4EC1-AC75-F9550177204E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidPassport", "CovidPassport\CovidPassport.csproj", "{1F645A8A-127F-4EC1-AC75-F9550177204E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidPassportSpecflowTesting", "CovidPassportSpecflowTesting\CovidPassportSpecflowTesting.csproj", "{D9049929-8342-44BB-9DB6-EE48AE2D2527}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1F645A8A-127F-4EC1-AC75-F9550177204E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F645A8A-127F-4EC1-AC75-F9550177204E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F645A8A-127F-4EC1-AC75-F9550177204E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9049929-8342-44BB-9DB6-EE48AE2D2527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9049929-8342-44BB-9DB6-EE48AE2D2527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9049929-8342-44BB-9DB6-EE48AE2D2527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9049929-8342-44BB-9DB6-EE48AE2D2527}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
