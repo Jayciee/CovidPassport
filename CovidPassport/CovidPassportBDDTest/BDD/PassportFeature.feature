@@ -18,9 +18,8 @@ Scenario: Edit Passport Page
 @backtolist
 Scenario: Back to list from edit page
 	Given I am on the passport page
-	When I click the edit button
-	Then I am directed to the edit page URL "https://localhost:44312/Passports/Edit"
-	And I click on the back to list brings me back to the approval list URL "https://localhost:44312/Passports"
+	When I click the edit button and I am directed to the edit page URL
+	Then I click on the back to list brings me back to the approval list URL "https://localhost:44312/Passports"
 
 @redirect
 Scenario: View User's Passport Approval Details
@@ -47,4 +46,10 @@ Scenario: Delete user from passport approval list
 	When I click the delete link
 	And I am directed to the delete confirmation page and I click the delete button 
 	Then I am directed to passport approval URL "https://localhost:44312/Passports"
+
+@backtolist
+Scenario: Back to list from delete page
+	Given I am on the passport page
+	When I click the delete link and I am directed to the delete page
+	Then I click on the back to list brings me back to the approval list URL "https://localhost:44312/Passports"
 

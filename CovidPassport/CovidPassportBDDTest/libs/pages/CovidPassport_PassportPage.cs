@@ -28,6 +28,8 @@ namespace CovidPassportBDDTest.libs.pages
 
         private IWebElement _backToListLinkDetails => Driver.FindElement(By.XPath("/html/body/div/main/div[2]/a[2]"));
 
+        private IWebElement _backToListLinkDelete => Driver.FindElement(By.XPath("/html/body/div/main/div/form/a"));
+
         private IWebElement _detailsLink => Driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr[1]/td[6]/a[2]"));
 
         private IWebElement _deleteLink => Driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr/td[6]/a[3]"));
@@ -53,6 +55,8 @@ namespace CovidPassportBDDTest.libs.pages
         public void ClickBackToListEdit() => _backToListLinkEdit.Click();
 
         public void ClickBackToListDetails() => _backToListLinkDetails.Click();
+
+        public void ClickBackToListDelete() => _backToListLinkDelete.Click();
 
         public void ClickDetailsButton() => _detailsLink.Click();
 

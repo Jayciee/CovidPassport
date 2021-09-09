@@ -96,7 +96,7 @@ namespace CovidPassportBDDTest.BDD
         public void ThenIShouldBeRedirectedBackToTheAddressPage()
         {
             Assert.That(_website.AddressPage.ReturnUrl(), Is.EqualTo("https://localhost:44312/Addresses"));
-        }        
+        }         
 
         [Then(@"My created user should appear with id (.*)")]
         public void ThenMyCreatedUserShouldAppearWithId(string id)
