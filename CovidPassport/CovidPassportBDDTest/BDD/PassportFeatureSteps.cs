@@ -52,16 +52,10 @@ namespace CovidPassportBDDTest.BDD
         [When(@"I click the delete link")]
         public void WhenIClickTheDeleteLink()
         {
-            _website.PassportPage.ClickDeleteButton();
-        }
-
-        [When(@"I click the delete link and I am directed to the delete confirmation page")]
-        public void WhenIClickTheDeleteLinkAndIAmDirectedToTheDeleteConfirmationPage()
-        {
             _website.PassportPage.ClickDeleteLink();
         }
 
-        [When(@"I click the delete button")]
+        [When(@"I am directed to the delete confirmation page and I click the delete button")]
         public void WhenIClickTheDeleteButton()
         {
             _website.PassportPage.ClickDeleteButton();

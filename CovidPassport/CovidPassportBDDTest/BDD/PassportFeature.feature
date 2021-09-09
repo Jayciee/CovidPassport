@@ -45,7 +45,7 @@ Scenario: Delete confirmation page
 @delete
 Scenario: Delete user from passport approval list
 	Given I am on the passport page
-	When I click the delete link and I am directed to the delete confirmation page
-	And I click the delete button 
+	When I click the delete link
+	And I am directed to the delete confirmation page and I click the delete button 
 	Then I am directed to passport approval URL "https://localhost:44312/Passports"
 

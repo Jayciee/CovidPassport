@@ -30,7 +30,7 @@ namespace CovidPassportBDDTest.libs.pages
 
         private IWebElement _detailsLink => Driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr[1]/td[6]/a[2]"));
 
-        private IWebElement _deleteLink => Driver.FindElement(By.XPath(""));
+        private IWebElement _deleteLink => Driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr/td[6]/a[3]"));
 
         private IWebElement _deleteButton => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]"));
         #endregion
