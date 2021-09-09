@@ -32,7 +32,21 @@ Scenario: Creating a new address
 	And My created user should appear with id <id>
 Examples: 
 | id | house number | street name | city name | postcode id |
-| 10 | 12           | Test Street  | Test City | TE27 1DE    |
+| 10 | 12           | TestStreet  | Test City | TE27 1DE    |
+
+
+@defect
+Scenario: Creating a new address
+	Given I am on the Addresses page
+	When I click the create new address hyperlink
+	And I am redirected to address URL "https://localhost:44312/Addresses/Create"
+	And I enter the details <id>, <house number>, <street name>, <city name>, <postcode id>
+	And I click the create button on the create address page
+	Then I should be redirected back to the address page
+	And My created user should appear with id <id>
+Examples: 
+| id | house number | street name | city name | postcode id |
+| 10 | 12           | Test Street  | Test City | TE27 1DE   |
 
 @delete
 Scenario: Deleting new address
