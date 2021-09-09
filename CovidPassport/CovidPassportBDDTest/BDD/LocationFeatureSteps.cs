@@ -141,6 +141,36 @@ namespace CovidPassportBDDTest.BDD
             Assert.That(_website.LocationPage.GetIDField, Is.EqualTo(""));
         }
 
+        [When(@"I change the address to: ""(.*)""")]
+        public void WhenIChangeTheAddressTo(int option)
+        {
+            _website.LocationPage.SelectAddressInEdit(option.ToString());
+        }
+
+        [When(@"I save the changes")]
+        public void WhenISaveTheChanges()
+        {
+            _website.LocationPage.ClickSaveEditChanges();
+        }
+
+        [Then(@"the address shows: ""(.*)""")]
+        public void ThenTheAddressShows(string address)
+        {
+
+            Assert.That(_website.LocationPage.FindLocation(1, 2), Does.Contain(address));
+        }
+        [When(@"I change the location name to: ""(.*)""")]
+        public void WhenIChangeTheLocationNameTo(string name)
+        {
+            _website.LocationPage.EditCentreName(name);
+        }
+
+        [Then(@"the location name shows: ""(.*)""")]
+        public void ThenTheLocationNameShows(string name)
+        {
+            Assert.That(_website.LocationPage.FindLocation(1, 1), Does.Contain(name));
+        }
+
         [AfterScenario]
         public void QuitWebDriver()
         {

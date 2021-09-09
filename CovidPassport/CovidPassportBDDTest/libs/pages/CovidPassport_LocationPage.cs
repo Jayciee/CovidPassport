@@ -33,6 +33,11 @@ namespace CovidPassportBDDTest.libs.pages
         private IWebElement _errorIDMessage => Driver.FindElement(By.Id("HealthCentre_HealthCentreId-error"));
         private IWebElement _errorNameMessage => Driver.FindElement(By.Id("HealthCentre_Name-error"));
         #endregion
+        #region edit page
+        private IWebElement _addressDropdown => Driver.FindElement(By.Id("HealthCentre_AddressId"));
+        private IWebElement _saveEditChanges => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[3]/input"));
+        private IWebElement _healthCentreName => Driver.FindElement(By.Id("HealthCentre_Name"));
+        #endregion
         #region delete page
         private IWebElement _deleteConfirm => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]"));
         #endregion
@@ -56,7 +61,7 @@ namespace CovidPassportBDDTest.libs.pages
         public void ClickPrivacy() => _privacyTab.Click();
         public void ClickHealthCentreOption(int option) => Driver.FindElement(By.XPath($"/html/body/header/nav/div/div[1]/div/a[{option}]")).Click();
         public void ClickUsersOption(int option) => _usersTab.FindElement(By.XPath($"/html/body/header/nav/div/div[2]/div/a[{option}]")).Click();
-        public void FindLocation(int row, int data) => _locationList.FindElement(By.XPath($"//tr[{row}]/td[{data}]"));
+        public string FindLocation(int row, int data) => _locationList.FindElement(By.XPath($"//tr[{row}]/td[{data}]")).Text;
         public void ClickLocationOption(int row,int option) => _locationList.FindElement(By.XPath($"//tr[{row}]/td[3]/a[{option}]")).Click();
         #region create page methods
         public void InputCentreId()
@@ -93,6 +98,26 @@ namespace CovidPassportBDDTest.libs.pages
         }
         public void InputCentreName(string name) => _centreName.SendKeys(name);
         public void ClickCreate() => _createButton.Click();
+        #endregion
+        #region edit methods
+        public void SelectAddressInEdit(string option)
+        {
+            var addressList = _addressDropdown.FindElements(By.TagName("option"));
+            foreach (var address in addressList)
+            {
+                if (address.GetAttribute("value") == option)
+                {
+                    address.Click();
+                    break;
+                }
+            }
+        }
+        public void EditCentreName(string name)
+        {
+            _healthCentreName.Clear();
+            _healthCentreName.SendKeys(name);
+        }
+        public void ClickSaveEditChanges() => _saveEditChanges.Click();
         #endregion
         public void ClickConfirmDelete() => _deleteConfirm.Click();
         #endregion
