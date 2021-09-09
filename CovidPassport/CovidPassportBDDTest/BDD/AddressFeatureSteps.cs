@@ -84,6 +84,32 @@ namespace CovidPassportBDDTest.BDD
             _website.AddressPage.ClickDelete();            
         }
 
+        [When(@"I edit the address to (.*), (.*), (.*), (.*)")]
+        public void WhenIEditTheAddressTo(string house_number, string street_name, string city, string postcode)
+        {
+            _website.AddressPage.EditHouseNumber(house_number);
+            _website.AddressPage.EditStreetName(street_name);
+            _website.AddressPage.EditCityName(city);
+            _website.AddressPage.EditPostcode(postcode);
+        }
+
+
+        [When(@"I click the save button on the edit address page")]
+        public void WhenIClickTheSaveButtonOnTheEditAddressPage()
+        {
+            _website.AddressPage.ClickSave();
+        }
+
+        [Then(@"I should see the first item with the updated details (.*), (.*), (.*), (.*)")]
+        public void ThenIShouldSeeTheFirstItemWithTheUpdatedDetails(string house_number, string street_name, string city, string postcode)
+        {
+            Assert.That(_website.AddressPage.ItemByPosition_HouseNumber(0), Is.EqualTo(house_number));
+            Assert.That(_website.AddressPage.ItemByPosition_StreetName(0), Is.EqualTo(street_name));
+            Assert.That(_website.AddressPage.ItemByPosition_City(0), Is.EqualTo(city));
+            Assert.That(_website.AddressPage.ItemByPosition_PostCode(0), Is.EqualTo(postcode));
+        }
+
+
         [Then(@"The address should be removed")]
         public void ThenTheAddressShouldBeRemoved()
         {
@@ -106,9 +132,14 @@ namespace CovidPassportBDDTest.BDD
         }
 
         [AfterScenario]
+        public void CleanUp()
+        {
+            _website.Driver.Quit();            
+        }
+
+        [OneTimeTearDown]
         public void DisposeWebDriver()
         {
-            _website.Driver.Quit();
             _website.Driver.Dispose();
         }
     }
