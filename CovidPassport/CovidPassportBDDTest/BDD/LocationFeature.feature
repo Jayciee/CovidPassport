@@ -9,6 +9,23 @@ Given I am on the locations page
 When I click the create location button
 Then I should be redirected to location URL "https://localhost:44312/HealthCentres/Create"
 
+@create
+Scenario: Create a location
+Given I am on the create location page
+When I fill out the form with the options: 
+| address | name        |
+| 4       | Test Centre |
+And I press the create location button
+Then I should be redirected to location URL "https://localhost:44312/HealthCentres"
+
+@delete
+Scenario: Delete new location
+Given I am on the locations page
+When I delete the new location
+And I confirm deletion 
+Then I should be redirected to location URL "https://localhost:44312/HealthCentres"
+And the last name on location list should not be "Test Centre"
+
 @edit
 Scenario: Click Edit button on first location
 Given I am on the locations page
@@ -62,3 +79,4 @@ Scenario: Click Privacy button
 Given I am on the locations page
 When I click the privacy button from locations
 Then I should be redirected to location URL "https://localhost:44312/Privacy"
+
