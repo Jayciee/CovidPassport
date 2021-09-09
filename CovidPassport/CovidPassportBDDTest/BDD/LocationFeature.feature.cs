@@ -107,7 +107,7 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I am on the locations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-testRunner.When("I click the create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I click the create location button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
 testRunner.Then("I should be redirected to location URL \"https://localhost:44312/HealthCentres/Cre" +
