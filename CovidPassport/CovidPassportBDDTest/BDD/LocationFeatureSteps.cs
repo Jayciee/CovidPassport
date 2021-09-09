@@ -106,10 +106,50 @@ namespace CovidPassportBDDTest.BDD
             Assert.False(_website.LocationPage.LastCentreName() == name);
         }
 
+        [When(@"I fill out the ID with an existing location ID")]
+        public void WhenIFillOutTheIDWithAnExistingLocationID()
+        {
+            _website.LocationPage.InputExistingId();
+        }
+        [When(@"I fill out the centre name with: ""(.*)""")]
+        public void WhenIFillOutTheCentreNameWith(string name)
+        {
+            _website.LocationPage.InputCentreName(name);
+        }
+
+        [Then(@"id error message should be: ""(.*)""")]
+        public void ThenIdErrorMessageShouldBe(string error)
+        {
+            Assert.That(_website.LocationPage.RetrieveIDError(), Does.Contain(error));
+        }
+
+        [Then(@"name error message should be: ""(.*)""")]
+        public void ThenNameErrorMessageShouldBe(string error)
+        {
+            Assert.That(_website.LocationPage.RetrieveNameError(), Does.Contain(error));
+        }
+
+        [When(@"I fill out the ID with a: ""(.*)""")]
+        public void WhenIFillOutTheIDWithA(string text)
+        {
+            _website.LocationPage.InputTextId(text);
+        }
+
+        [Then(@"ID field should be empty")]
+        public void ThenIDFieldShouldBeEmpty()
+        {
+            Assert.That(_website.LocationPage.GetIDField, Is.EqualTo(""));
+        }
+
         [AfterScenario]
+        public void QuitWebDriver()
+        {
+            _website.Driver.Quit();            
+        }
+
+        [OneTimeTearDown]
         public void DisposeWebDriver()
         {
-            _website.Driver.Quit();
             _website.Driver.Dispose();
         }
     }

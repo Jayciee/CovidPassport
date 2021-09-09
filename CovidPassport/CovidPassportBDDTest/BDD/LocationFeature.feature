@@ -18,6 +18,34 @@ When I fill out the form with the options:
 And I press the create location button
 Then I should be redirected to location URL "https://localhost:44312/HealthCentres"
 
+@create-sad-fail
+Scenario: Create a location with existing ID
+Given I am on the create location page
+When I fill out the ID with an existing location ID
+And I fill out the centre name with: "Random Centre"
+And I press the create location button
+Then id error message should be: "ID already exists"
+
+@create-sad
+Scenario: Create location form with no ID or Name input
+Given I am on the create location page
+When I press the create location button
+Then id error message should be: "The HealthCentreId field is required."
+And name error message should be: "Name of Establishment missing"
+
+@create-sad
+Scenario: Create location form with bad name
+Given I am on the create location page
+When I fill out the centre name with: "test"
+And I press the create location button
+Then name error message should be: "The field Name must match the regular expression '^[A-Z][A-Za-z\s]*$'."
+
+@create
+Scenario: Typing text into ID field doesn't allow
+Given I am on the create location page
+When I fill out the ID with a: "text"
+Then ID field should be empty
+
 @delete
 Scenario: Delete new location
 Given I am on the locations page

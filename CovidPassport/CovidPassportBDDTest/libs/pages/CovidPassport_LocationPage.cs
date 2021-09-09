@@ -30,6 +30,8 @@ namespace CovidPassportBDDTest.libs.pages
         private IWebElement _address => Driver.FindElement(By.Id("HealthCentre_AddressId"));
         private IWebElement _centreName => Driver.FindElement(By.Id("HealthCentre_Name"));
         private IWebElement _createButton => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[4]/input"));
+        private IWebElement _errorIDMessage => Driver.FindElement(By.Id("HealthCentre_HealthCentreId-error"));
+        private IWebElement _errorNameMessage => Driver.FindElement(By.Id("HealthCentre_Name-error"));
         #endregion
         #region delete page
         private IWebElement _deleteConfirm => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]"));
@@ -62,6 +64,9 @@ namespace CovidPassportBDDTest.libs.pages
             Random rnd = new Random();
             _centreID.SendKeys(rnd.Next(10, 100000000).ToString());
         }
+        public void InputExistingId() => _centreID.SendKeys("1");
+        public void InputTextId(string text) => _centreID.SendKeys(text);
+        public string GetIDField() => _centreID.Text;
         public void SelectAddress(string option)
         {
             var addressLists =_address.FindElements(By.TagName("option"));
@@ -74,6 +79,8 @@ namespace CovidPassportBDDTest.libs.pages
                 }
             }
         }
+        public string RetrieveIDError() => _errorIDMessage.Text;
+        public string RetrieveNameError() => _errorNameMessage.Text;
         public void DeleteLastCentre()
         {
             var count = _locationList.FindElements(By.TagName("tr")).ToList().Count;
