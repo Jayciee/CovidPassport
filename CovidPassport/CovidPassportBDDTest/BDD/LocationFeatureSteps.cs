@@ -3,6 +3,7 @@ using TechTalk.SpecFlow;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using CovidPassportBDDTest.libs;
+using System.Linq;
 
 namespace CovidPassportBDDTest.BDD
 {
@@ -27,6 +28,82 @@ namespace CovidPassportBDDTest.BDD
         public void ThenIShouldBeRedirectedToLocationURL(string address)
         {
             Assert.That(_website.LocationPage.ReturnUrl(), Does.Contain(address));
+        }
+
+        [When(@"I click the edit location button")]
+        public void WhenIClickTheEditLocationButton()
+        {
+            _website.LocationPage.ClickLocationOption(1, 1);
+        }
+
+        [When(@"I click the detail location button")]
+        public void WhenIClickTheDetailLocationButton()
+        {
+            _website.LocationPage.ClickLocationOption(1, 2);
+        }
+
+        [When(@"I click the home button from locations")]
+        public void WhenIClickTheHomeButtonFromLocations()
+        {
+            _website.LocationPage.ClickHome();
+        }
+        [When(@"I click the option from the Health Centre Dropdown: ""(.*)""")]
+        public void WhenIClickTheOptionFromTheHealthCentreDropdown(int option)
+        {
+            _website.LocationPage.HoverHealthOption();
+            _website.LocationPage.ClickHealthCentreOption(option);
+        }
+
+        [When(@"I click the option from the Users Dropdown: ""(.*)""")]
+        public void WhenIClickTheOptionFromTheUsersDropdown(int option)
+        {
+            _website.LocationPage.HoverUserOption();
+            _website.LocationPage.ClickUsersOption(option);
+        }
+        [When(@"I click the privacy button from locations")]
+        public void WhenIClickThePrivacyButtonFromLocations()
+        {
+            _website.LocationPage.ClickPrivacy();
+        }
+
+        [Given(@"I am on the create location page")]
+        public void GivenIAmOnTheCreateLocationPage()
+        {
+            _website.LocationPage.VisitCreateLocationPage();
+        }
+
+        [When(@"I fill out the form with the options:")]
+        public void WhenIFillOutTheFormWithTheOptions(Table table)
+        {
+            var address = table.Rows.Select(i => i["address"]).FirstOrDefault();
+            var name = table.Rows.Select(i => i["name"]).FirstOrDefault();
+            _website.LocationPage.InputCentreId();
+            _website.LocationPage.SelectAddress(address);
+            _website.LocationPage.InputCentreName(name);
+        }
+
+        [When(@"I press the create location button")]
+        public void WhenIPressTheCreateLocationButton()
+        {
+            _website.LocationPage.ClickCreate();
+        }
+
+        [When(@"I delete the new location")]
+        public void WhenIDeleteTheNewLocation()
+        {
+            _website.LocationPage.DeleteLastCentre();
+        }
+
+        [When(@"I confirm deletion")]
+        public void WhenIConfirmDeletion()
+        {
+            _website.LocationPage.ClickConfirmDelete();
+        }
+
+        [Then(@"the last name on location list should not be ""(.*)""")]
+        public void ThenTheLastNameOnLocationListShouldNotBe(string name)
+        {
+            Assert.False(_website.LocationPage.LastCentreName() == name);
         }
 
         [AfterScenario]
