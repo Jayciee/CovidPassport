@@ -36,7 +36,7 @@ Examples:
 
 
 @defect
-Scenario: Creating a new address
+Scenario: Creating a new address - Defect
 	Given I am on the Addresses page
 	When I click the create new address hyperlink
 	And I am redirected to address URL "https://localhost:44312/Addresses/Create"
