@@ -15,7 +15,7 @@ namespace CovidPassportBDDTest.libs.pages
         }
 
         public IWebDriver Driver { get; }
-
+        //Avoid using XPath as the path is relative and may break
         #region Properties
         private string _url => AppConfigReader.ApprovalUrl;
         private IWebElement _approvalLink => Driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr/td[5]/a[1]"));

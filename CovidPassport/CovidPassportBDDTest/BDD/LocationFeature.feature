@@ -40,11 +40,37 @@ When I fill out the centre name with: "test"
 And I press the create location button
 Then name error message should be: "The field Name must match the regular expression '^[A-Z][A-Za-z\s]*$'."
 
+#TEST MEANT TO FAIL BUT DOESN'T, CAN'T RETRIEVE THE TEXT FROM FIELD
 @create
 Scenario: Typing text into ID field doesn't allow
 Given I am on the create location page
 When I fill out the ID with a: "text"
 Then ID field should be empty
+
+@edit
+Scenario: Click Edit button on first location
+Given I am on the locations page
+When I click the edit location button
+Then I should be redirected to location URL "https://localhost:44312/HealthCentres/Edit?id=1"
+
+@edit
+Scenario: Changing address in the edit page
+Given I am on the locations page
+When I click the edit location button
+And I change the address to: "3"
+And I save the changes
+Then I should be redirected to location URL "https://localhost:44312/HealthCentres"
+And the address shows: "823 Chimera Close , Woodsville"
+
+@edit
+Scenario: Changing location name in the edit page
+Given I am on the locations page
+When I click the edit location button
+And I change the location name to: "Chris Pokemon Centre"
+And I save the changes
+Then I should be redirected to location URL "https://localhost:44312/HealthCentres"
+And the location name shows: "Chris Pokemon Centre"
+
 
 @delete
 Scenario: Delete new location
@@ -54,11 +80,7 @@ And I confirm deletion
 Then I should be redirected to location URL "https://localhost:44312/HealthCentres"
 And the last name on location list should not be "Test Centre"
 
-@edit
-Scenario: Click Edit button on first location
-Given I am on the locations page
-When I click the edit location button
-Then I should be redirected to location URL "https://localhost:44312/HealthCentres/Edit?id=1"
+
 
 @details
 Scenario: Click Detail button on first location
