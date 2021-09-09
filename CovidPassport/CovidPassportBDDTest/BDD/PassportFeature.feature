@@ -5,9 +5,8 @@
 @update
 Scenario: Edit a passport
 	Given I am on the passport page
-	When I click the edit button
-	Then I am directed to the edit page URL "https://localhost:44312/Passports/Edit"
-	And I select the save button then the user is directed to the passport page URL "https://localhost:44312/Passports"
+	When I click the edit button and I am directed to the edit page URL
+	Then I select the save button then the user is directed to the passport page URL "https://localhost:44312/Passports"
 	And The selected user details gets updated
 
 @redirect

@@ -9,15 +9,7 @@ namespace CovidPassportBDDTest.BDD
     [Binding]
     public class PassportFeatureSteps
     {
-        public int _count;
-
         private CovidPassport_Website<ChromeDriver> _website = new CovidPassport_Website<ChromeDriver>();
-
-        [Before]
-        public void AddUp()
-        {
-            _count = _website.PassportPage.ApprovedPassportListCount();
-        }
 
         [Given(@"I am on the passport page")]
         public void GivenIAmOnThePassportPage()
@@ -53,6 +45,12 @@ namespace CovidPassportBDDTest.BDD
         public void WhenIClickTheDeleteLink()
         {
             _website.PassportPage.ClickDeleteLink();
+        }
+
+        [When(@"I click the edit button and I am directed to the edit page URL")]
+        public void WhenIClickTheEditButtonAndIAmDirectedToTheEditPageURL()
+        {
+            _website.PassportPage.ClickEdit();
         }
 
         [When(@"I am directed to the delete confirmation page and I click the delete button")]
@@ -115,11 +113,15 @@ namespace CovidPassportBDDTest.BDD
             Assert.That(_website.Driver.Url, Is.EqualTo(URL));
         }
 
-
         [AfterScenario]
-        public void CleanUp()
+        public void QuitDriver()
         {
             _website.Driver.Quit();
+        }
+
+        [OneTimeTearDown]
+        public void CleanUp()
+        {
             _website.Driver.Dispose();
         }
     }
