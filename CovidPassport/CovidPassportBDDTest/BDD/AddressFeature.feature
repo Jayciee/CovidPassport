@@ -30,10 +30,9 @@ Scenario: Creating a new address
 	And I click the create button on the create address page
 	Then I should be redirected back to the address page
 	And My created user should appear with id <id>
-
 Examples: 
 | id | house number | street name | city name | postcode id |
-| 10 | 12           | Teststreet  | Test City | TE27 1DE    |
+| 10 | 12           | Test Street  | Test City | TE27 1DE    |
 
 @delete
 Scenario: Deleting new address
@@ -41,3 +40,16 @@ Scenario: Deleting new address
 	When I click delete address on my created item
 	And I click the delete button again on the address deletion confirmation page
 	Then The address should be removed
+
+@edit
+Scenario: Editing the first address
+	Given I am on the Addresses page
+	When I click edit on the first address
+	And I edit the address to <house number>, <street name>, <city name>, <postcode id>
+	And I click the save button on the edit address page
+	Then I should see the first item with the updated details <house number>, <street name>, <city name>, <postcode id>
+
+Examples: 
+| house number | street name   | city name  | postcode id |
+| 64           | Zoo lane      | Birkenhead | PO19 6YQ    |
+| 55           | Eastside Lane | Birkenhead | PO19 6YQ    | 

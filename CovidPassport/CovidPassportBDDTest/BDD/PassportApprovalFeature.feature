@@ -2,6 +2,8 @@
 	As a Healthcare Centre, I want to see all the people who have received two jabs, 
 	so I can see who is waiting for passport approval.
 
+
+#two steps
 @good
 Scenario: Approve a passport
 	Given I am on the Passport Approval Page
