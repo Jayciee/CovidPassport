@@ -50,14 +50,63 @@ Scenario: Delete user from passport approval list
 @happy
 Scenario: Back to list from delete page
 	Given I am on the passport page
-	When I click the back to list link and I am directed to the delete page
-	Then I click on the back to list brings me back to the approval list URL "https://localhost:44312/Passports"
+	When I click the delete link and I am directed to the delete page
+	And I click on the back to list
+	Then I am brought me back to the approval list URL "https://localhost:44312/Passports"
 
 @redirect
 Scenario: NHS sites link
 	Given I am on the passport page
 	When I click the nhs sites link
 	Then I must be directed to the selected page URL "https://www.nhs.uk/nhs-sites/"
+
+@redirect
+Scenario: NHS App link
+	Given I am on the passport page
+	When I click the nhs app link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/nhs-app/"
+
+@redirect
+Scenario: About us link
+	Given I am on the passport page
+	When I click the about us link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/about-us/"
+
+@redirect
+Scenario: Contact us link
+	Given I am on the passport page
+	When I click the contact us link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/contact-us/"
+
+@redirect
+Scenario: Site map link
+	Given I am on the passport page
+	When I click the site map link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/about-us/site-map/"
+
+@redirect
+Scenario: Accessibility statement link
+	Given I am on the passport page
+	When I click the accessibility statement link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/accessibility-statement/"
+
+@redirect
+Scenario: Policies link
+	Given I am on the passport page
+	When I click our policies link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/our-policies/"
+
+@redirect
+Scenario: Cookies link
+	Given I am on the passport page
+	When I click the cookie link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/our-policies/cookies-policy/"
+
+@redirect
+Scenario: Privacy link
+	Given I am on the passport page
+	When I click our privacy link
+	Then I must be directed to the selected page URL "https://localhost:44312/Privacy"
 
 @sad
 Scenario: Missing Link Picture

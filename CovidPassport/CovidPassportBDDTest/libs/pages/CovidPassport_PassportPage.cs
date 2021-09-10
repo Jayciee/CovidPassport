@@ -38,6 +38,22 @@ namespace CovidPassportBDDTest.libs.pages
 
         private IWebElement _nhsSitesLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[1]"));
 
+        private IWebElement _nhsAppLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[2]"));
+
+        private IWebElement _aboutUsLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[3]"));
+
+        private IWebElement _contactUsLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[4]"));
+
+        private IWebElement _siteMap => Driver.FindElement(By.XPath("/html/body/footer/div/a[5]"));
+
+        private IWebElement _accessibilityStatementLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[6]"));
+
+        private IWebElement _policyLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[7]"));
+
+        private IWebElement _cookiesLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[8]"));
+
+        private IWebElement _privacyLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[9]"));
+
         private IWebElement _missingPictureErrorText => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[3]/span"));
 
         private IWebElement _pictureEditBox => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[3]/input"));
@@ -76,6 +92,40 @@ namespace CovidPassportBDDTest.libs.pages
 
         public void ClickNHSSitesButton() => _nhsSitesLink.Click();
 
+        public IWebElement GetNHSSitesLinkURL() => _nhsSitesLink;
+
+        public void ClickNHSAppButton() => _nhsAppLink.Click();
+
+        public IWebElement GetNHSAppLinkURL() => _nhsAppLink;
+
+        public void ClickAboutUsButton() => _aboutUsLink.Click();
+
+        public IWebElement GetAboutUsLinkURL() => _aboutUsLink;
+
+        public void ClickContactUsButton() => _contactUsLink.Click();
+
+        public IWebElement GetContactUsLinkURL() => _contactUsLink;
+
+        public void ClickSiteMapButton() => _siteMap.Click();
+
+        public IWebElement GetSiteMapLinkURL() => _siteMap;
+
+        public void ClickAccessibilityStatementButton() => _accessibilityStatementLink.Click();
+
+        public IWebElement GetAccessibilityStatementLinkURL() => _accessibilityStatementLink;
+
+        public void ClickPolicyButton() => _policyLink.Click();
+
+        public IWebElement GetPolicyLinkURL() => _policyLink;
+
+        public void ClickPrivacyButton() => _privacyLink.Click();
+
+        public IWebElement GetPrivacyLinkURL() => _privacyLink;
+
+        public void ClickCookieButton() => _cookiesLink.Click();
+
+        public IWebElement GetCookiesLinkURL() => _cookiesLink;
+
         public int ApprovedPassportListCount() => _approvedPassportList.Count();
 
         public void GetApprovedPassportListItems(int pos) => _approvedPassportList[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos+1}]"));
@@ -95,6 +145,10 @@ namespace CovidPassportBDDTest.libs.pages
         public string GetExpirationDateErrorText() => _expirationDateErrorText.Text;
 
         public bool GetExpirationDateErrorIsDisplayed() => _expirationDateErrorText.Displayed;
+
+        public void VisitSite(string url) => Driver.Navigate().GoToUrl(url);
+
+        public string GetURLFromLink(IWebElement link) => link.GetAttribute("href");
         #endregion
     }
 }

@@ -59,11 +59,10 @@ namespace CovidPassportBDDTest.BDD
             _website.PassportPage.ClickDeleteButton();
         }
 
-        [When(@"I click the back to list link and I am directed to the delete page")]
+        [When(@"I click the delete link and I am directed to the delete page")]
         public void WhenIClickTheBackToListLinkAndIAmDirectedToTheDeletePage()
         {
             _website.PassportPage.ClickDeleteLink();
-            _website.PassportPage.ClickBackToListDelete();
         }
 
         [When(@"I click the nhs sites link")]
@@ -72,11 +71,58 @@ namespace CovidPassportBDDTest.BDD
             _website.PassportPage.ClickNHSSitesButton();
         }
 
+        [When(@"I click the nhs app link")]
+        public void WhenIClickTheNhsAppLink()
+        {
+            _website.PassportPage.ClickNHSAppButton();
+        }
+
+        [When(@"I click the about us link")]
+        public void WhenIClickTheAboutUsLink()
+        {
+            _website.PassportPage.ClickAboutUsButton();
+        }
+
+        [When(@"I click the contact us link")]
+        public void WhenIClickTheContactUsLink()
+        {
+            _website.PassportPage.ClickContactUsButton();
+        }
+
+        [When(@"I click the site map link")]
+        public void WhenIClickTheSiteMapLink()
+        {
+            _website.PassportPage.ClickSiteMapButton();
+        }
+
+        [When(@"I click the accessibility statement link")]
+        public void WhenIClickTheAccessibilityStatementLink()
+        {
+            _website.PassportPage.ClickAccessibilityStatementButton();
+        }
+
+        [When(@"I click our policies link")]
+        public void WhenIClickOurPoliciesLink()
+        {
+            _website.PassportPage.ClickPolicyButton();
+        }
+
+        [When(@"I click the cookie link")]
+        public void WhenIClickTheCookieLink()
+        {
+            _website.PassportPage.ClickCookieButton();
+        }
+
+        [When(@"I click our privacy link")]
+        public void WhenIClickOurPrivacyLink()
+        {
+            _website.PassportPage.ClickPrivacyButton();
+        }
 
         [Then(@"I must be directed to the selected page URL ""(.*)""")]
         public void ThenIMustBeDirectedToTheSelectedPageURL(string URL)
         {
-            Assert.That(_website.Driver.Url, Is.EqualTo(URL));
+            Assert.That(_website.PassportPage.GetURLFromLink(_website.PassportPage.GetNHSAppLinkURL()), Is.EqualTo(URL));
         }
 
 
@@ -129,6 +175,18 @@ namespace CovidPassportBDDTest.BDD
 
         [Then(@"I click on the back to list brings me back to the approval list URL ""(.*)""")]
         public void ThenIClickOnTheBackToListBringsMeBackToTheApprovalListURL(string URL)
+        {
+            Assert.That(_website.Driver.Url, Is.EqualTo(URL));
+        }
+
+        [When(@"I click on the back to list")]
+        public void WhenIClickOnTheBackToList()
+        {
+            _website.PassportPage.ClickBackToListDelete();
+        }
+
+        [Then(@"I am brought me back to the approval list URL ""(.*)""")]
+        public void ThenIAmBroughtMeBackToTheApprovalListURL(string URL)
         {
             _website.PassportPage.ClickBackToListEdit();
             Assert.That(_website.Driver.Url, Is.EqualTo(URL));
