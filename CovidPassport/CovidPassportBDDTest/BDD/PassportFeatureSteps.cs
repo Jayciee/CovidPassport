@@ -59,10 +59,11 @@ namespace CovidPassportBDDTest.BDD
             _website.PassportPage.ClickDeleteButton();
         }
 
-        [When(@"I click the delete link and I am directed to the delete page")]
-        public void WhenIClickTheDeleteLinkAndIAmDirectedToTheDeletePage()
+        [When(@"I click the back to list link and I am directed to the delete page")]
+        public void WhenIClickTheBackToListLinkAndIAmDirectedToTheDeletePage()
         {
             _website.PassportPage.ClickDeleteLink();
+            _website.PassportPage.ClickBackToListDelete();
         }
 
         [When(@"I click the nhs sites link")]
@@ -70,6 +71,7 @@ namespace CovidPassportBDDTest.BDD
         {
             _website.PassportPage.ClickNHSSitesButton();
         }
+
 
         [Then(@"I must be directed to the selected page URL ""(.*)""")]
         public void ThenIMustBeDirectedToTheSelectedPageURL(string URL)
@@ -130,6 +132,34 @@ namespace CovidPassportBDDTest.BDD
         {
             _website.PassportPage.ClickBackToListEdit();
             Assert.That(_website.Driver.Url, Is.EqualTo(URL));
+        }
+
+        [When(@"The picture textbox is empty")]
+        public void WhenThePictureTextboxIsEmpty()
+        {
+            _website.PassportPage.ClearPicture();
+            _website.PassportPage.ClickSave();
+        }
+
+        [When(@"The expiration date textbox is empty")]
+        public void WhenTheExpirationDateTextboxIsEmpty()
+        {
+            _website.PassportPage.ClearExpriationDate();
+            _website.PassportPage.ClickSave();
+        }
+
+        [Then(@"I get an error if the expiration date edit text is empty ""(.*)""")]
+        public void ThenIGetAnErrorIfTheExpirationDateEditTextIsEmpty(string errorText)
+        {
+            Assert.That(_website.PassportPage.GetExpirationDateErrorIsDisplayed, Is.True);
+            Assert.That(_website.PassportPage.GetExpirationDateErrorText, Is.EqualTo(errorText));
+        }
+
+        [Then(@"I get an error if the picture edit text is empty ""(.*)""")]
+        public void ThenIGetAnErrorIfThePictureEditTextIsEmpty(string errorText)
+        {
+            Assert.That(_website.PassportPage.GetPictureMissingErrorIsDisplayed, Is.True);
+            Assert.That(_website.PassportPage.GetMissingPictureErrorText, Is.EqualTo(errorText));
         }
 
         [AfterScenario]
