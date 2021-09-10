@@ -66,6 +66,8 @@ namespace CovidPassportBDDTest.libs.pages
         public void ClickCreate() => _addressForm.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[6]/input")).Click();
         public void ClickDelete() => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]")).Click();
         public void ClickSave() => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[5]/input")).Click();
+
+        public string GetStreetNameError() => Driver.FindElement(By.Id("Address_StreetName-error")).Text;
         #endregion
     }
 }
