@@ -320,10 +320,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click the create button on the create address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45
- testRunner.Then("I should be redirected back to the address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 46
- testRunner.And(string.Format("My created user should appear with id {0}", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I should get an error message under the street name field \"The field StreetName m" +
+                        "ust match the regular expression \'^[A-Z][a-z\\s]*$\'.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -338,7 +336,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "delete"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting new address", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 52
+#line 51
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -358,16 +356,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 53
+#line 52
  testRunner.Given("I am on the Addresses page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 54
+#line 53
  testRunner.When("I click delete address on my created item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 55
+#line 54
  testRunner.And("I click the delete button again on the address deletion confirmation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 55
  testRunner.Then("The address should be removed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -394,7 +392,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("city name", cityName);
             argumentsOfScenario.Add("postcode id", postcodeId);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Editing the first address", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 59
+#line 58
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -414,19 +412,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 60
+#line 59
  testRunner.Given("I am on the Addresses page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 61
+#line 60
  testRunner.When("I click edit on the first address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 62
+#line 61
  testRunner.And(string.Format("I edit the address to {0}, {1}, {2}, {3}", houseNumber, streetName, cityName, postcodeId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 62
  testRunner.And("I click the save button on the edit address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 64
+#line 63
  testRunner.Then(string.Format("I should see the first item with the updated details {0}, {1}, {2}, {3}", houseNumber, streetName, cityName, postcodeId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

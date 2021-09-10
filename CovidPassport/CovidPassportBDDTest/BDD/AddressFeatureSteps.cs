@@ -131,6 +131,13 @@ namespace CovidPassportBDDTest.BDD
             Assert.That(_website.AddressPage.ReturnUrl(), Is.EqualTo($"https://localhost:44312/Addresses/Details?id={id}"));
         }
 
+        [Then(@"I should get an error message under the street name field ""(.*)""")]
+        public void ThenIShouldGetAnErrorMessageUnderTheStreetNameField(string error)
+        {
+            Assert.That(_website.AddressPage.GetStreetNameError(), Is.EqualTo(error));
+        }
+
+
         [AfterScenario]
         public void QuitWebDriver()
         {

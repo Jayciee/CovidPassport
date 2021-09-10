@@ -42,11 +42,10 @@ Scenario: Creating a new address - Defect
 	And I am redirected to address URL "https://localhost:44312/Addresses/Create"
 	And I enter the details <id>, <house number>, <street name>, <city name>, <postcode id>
 	And I click the create button on the create address page
-	Then I should be redirected back to the address page
-	And My created user should appear with id <id>
+	Then I should get an error message under the street name field "The field StreetName must match the regular expression '^[A-Z][a-z\s]*$'."
 Examples: 
 | id | house number | street name | city name | postcode id |
-| 10 | 12           | Test Street  | Test City | TE27 1DE   |
+| 10 | 12           | Test Street | Test City | TE27 1DE    |
 
 @delete
 Scenario: Deleting new address
