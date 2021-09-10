@@ -35,6 +35,8 @@ namespace CovidPassportBDDTest.libs.pages
         private IWebElement _deleteLink => Driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr/td[6]/a[3]"));
 
         private IWebElement _deleteButton => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]"));
+
+        private IWebElement _nhsSitesLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[1]"));
         #endregion
 
         #region Methods
@@ -63,6 +65,8 @@ namespace CovidPassportBDDTest.libs.pages
         public void ClickDeleteLink() => _deleteLink.Click();
 
         public void ClickDeleteButton() => _deleteButton.Click();
+
+        public void ClickNHSSitesButton() => _nhsSitesLink.Click();
 
         public int ApprovedPassportListCount() => _approvedPassportList.Count();
 

@@ -53,3 +53,8 @@ Scenario: Back to list from delete page
 	When I click the delete link and I am directed to the delete page
 	Then I click on the back to list brings me back to the approval list URL "https://localhost:44312/Passports"
 
+@redirect
+Scenario: NHS sites link
+	Given I am on the passport page
+	When I click the nhs sites link
+	Then I must be directed to the selected page URL "https://www.nhs.uk/nhs-sites/"

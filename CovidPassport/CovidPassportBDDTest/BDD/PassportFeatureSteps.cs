@@ -65,6 +65,19 @@ namespace CovidPassportBDDTest.BDD
             _website.PassportPage.ClickDeleteLink();
         }
 
+        [When(@"I click the nhs sites link")]
+        public void WhenIClickTheNhsSitesLink()
+        {
+            _website.PassportPage.ClickNHSSitesButton();
+        }
+
+        [Then(@"I must be directed to the selected page URL ""(.*)""")]
+        public void ThenIMustBeDirectedToTheSelectedPageURL(string URL)
+        {
+            Assert.That(_website.Driver.Url, Is.EqualTo(URL));
+        }
+
+
         [Then(@"I am directed to passport approval URL ""(.*)""")]
         public void ThenIAmDirectedToPassportApprovalURL(string URL)
         {
