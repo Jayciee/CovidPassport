@@ -15,7 +15,7 @@ Scenario: Edit Passport Page
 	When I click the edit button
 	Then I am directed to the edit page URL "https://localhost:44312/Passports/Edit"
 
-@backtolist
+@happy
 Scenario: Back to list from edit page
 	Given I am on the passport page
 	When I click the edit button and I am directed to the edit page URL
@@ -27,7 +27,7 @@ Scenario: View User's Passport Approval Details
 	When I click the details link
 	Then I should be directed to the view details URL "https://localhost:44312/Passports/Details"
 
-@backtolist
+@happy
 Scenario: Back to list from details page
 	Given I am on the passport page
 	When I click the details link it should be directed to the view details URL "https://localhost:44312/Passports/Details" 
@@ -47,10 +47,10 @@ Scenario: Delete user from passport approval list
 	And I am directed to the delete confirmation page and I click the delete button 
 	Then I am directed to passport approval URL "https://localhost:44312/Passports"
 
-@backtolist
+@happy
 Scenario: Back to list from delete page
 	Given I am on the passport page
-	When I click the delete link and I am directed to the delete page
+	When I click the back to list link and I am directed to the delete page
 	Then I click on the back to list brings me back to the approval list URL "https://localhost:44312/Passports"
 
 @redirect
@@ -58,3 +58,17 @@ Scenario: NHS sites link
 	Given I am on the passport page
 	When I click the nhs sites link
 	Then I must be directed to the selected page URL "https://www.nhs.uk/nhs-sites/"
+
+@sad
+Scenario: Missing Link Picture
+	Given I am on the passport page
+	When I click the edit button and I am directed to the edit page URL
+	And The picture textbox is empty
+	Then I get an error if the picture edit text is empty "Missing Picture Link"
+
+@sad
+Scenario: Missing Expiration Date
+	Given I am on the passport page
+	When I click the edit button and I am directed to the edit page URL
+	And The expiration date textbox is empty
+	Then I get an error if the expiration date edit text is empty "Missing Expiration Date"

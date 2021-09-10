@@ -76,11 +76,11 @@ namespace CovidPassportBDDTest.BDD
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Approve a passport")]
-        [NUnit.Framework.CategoryAttribute("good")]
+        [NUnit.Framework.CategoryAttribute("happy")]
         public virtual void ApproveAPassport()
         {
             string[] tagsOfScenario = new string[] {
-                    "good"};
+                    "happy"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Approve a passport", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 8

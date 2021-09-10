@@ -4,7 +4,7 @@
 
 
 #two steps
-@good
+@happy
 Scenario: Approve a passport
 	Given I am on the Passport Approval Page
 	When I click on Passport Approval button

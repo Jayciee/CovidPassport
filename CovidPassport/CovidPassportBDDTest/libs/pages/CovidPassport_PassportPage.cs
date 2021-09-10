@@ -37,6 +37,14 @@ namespace CovidPassportBDDTest.libs.pages
         private IWebElement _deleteButton => Driver.FindElement(By.XPath("/html/body/div/main/div/form/input[2]"));
 
         private IWebElement _nhsSitesLink => Driver.FindElement(By.XPath("/html/body/footer/div/a[1]"));
+
+        private IWebElement _missingPictureErrorText => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[3]/span"));
+
+        private IWebElement _pictureEditBox => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[3]/input"));
+
+        private IWebElement _expirationDateEditBox => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[4]/input"));
+
+        private IWebElement _expirationDateErrorText => Driver.FindElement(By.XPath("/html/body/div/main/div[1]/div/form/div[4]/span"));
         #endregion
 
         #region Methods
@@ -71,6 +79,22 @@ namespace CovidPassportBDDTest.libs.pages
         public int ApprovedPassportListCount() => _approvedPassportList.Count();
 
         public void GetApprovedPassportListItems(int pos) => _approvedPassportList[pos].FindElement(By.XPath($"/html/body/div/main/table/tbody/tr[{pos+1}]"));
+
+        public string GetMissingPictureErrorText() => _missingPictureErrorText.Text;
+
+        public bool GetPictureMissingErrorIsDisplayed() => _missingPictureErrorText.Displayed;
+
+        public string GetPictureEditBoxText() => _pictureEditBox.Text;
+
+        public void ClearPicture() => _pictureEditBox.Clear();
+
+        public string GetExpirationDateEditBoxText() => _expirationDateEditBox.Text;
+
+        public void ClearExpriationDate() => _expirationDateEditBox.Clear();
+
+        public string GetExpirationDateErrorText() => _expirationDateErrorText.Text;
+
+        public bool GetExpirationDateErrorIsDisplayed() => _expirationDateErrorText.Displayed;
         #endregion
     }
 }
